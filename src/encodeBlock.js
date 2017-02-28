@@ -7,10 +7,11 @@ const ENTITY_MAP = {
   '>': '&gt;',
   '"': '&quot;',
   "'": '&#x27;',
-  '`': '&#x60;'
+  '`': '&#x60;',
+  '\n': '<br/>'
 };
 
-export default(block) => {
+export default block => {
   const blockText = block.text;
 
   let entities = block.entityRanges.sort(rangeSort);
@@ -25,8 +26,8 @@ export default(block) => {
       const resultIndex = resultText.length;
       resultText += encoded;
 
-      const updateForChar = (mutation) => {
-        return updateMutation(mutation, resultIndex, char.length, encoded.length);
+      const updateForChar = mutation => {
+        return updateMutation(mutation, resultIndex, char.length, encoded.length, 0);
       };
 
       entities = entities.map(updateForChar);
@@ -41,4 +42,4 @@ export default(block) => {
     inlineStyleRanges: styles,
     entityRanges: entities
   });
-}
+};
