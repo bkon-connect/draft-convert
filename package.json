@@ -34,8 +34,8 @@
   "license": "Apache-2.0",
   "peerDependencies": {
     "draft-js": ">=0.7.0",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "react": "^0.14.0 || ^15.0.2",
+    "react-dom": "^0.14.0 || ^15.0.2"
   },
   "dependencies": {
     "immutable": "~3.7.4",
